@@ -1,0 +1,4 @@
+/venv
+/rplugin/python3/deoplete/sources/__pycache__/*
+/doc/tags
+/doc/tags-ja

@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+# vim: filetype=python
+
+# pake is python makefile.
+with open('./pake.py') as pk:
+    pkcmd = pk.read()
+    exec(pkcmd)
