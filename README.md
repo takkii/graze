@@ -7,7 +7,7 @@ LICENSE) [![GitHub release](https://img.shields.io/github/release/takkii/lovingy
 </div>
 <br />
 <div align="center">
-    <b> lovingyou is  overlap clone, origin go_straight.</b>
+    <b> lovingyou is kindness clone, origin go_straight.</b>
 </div>
 <br />
 <div align="center">
