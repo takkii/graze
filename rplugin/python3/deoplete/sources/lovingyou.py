@@ -23,7 +23,7 @@ class Source(Base):
         super().__init__(vim)
         self.name: Optional[str] = 'lovingyou'
         self.filetypes: Optional[list] = ['javascript']
-        mark_synbol: Optional[str] = '[JSMethod_pandas]'
+        mark_synbol: Optional[str] = '[JavaScript_pandas]'
         self.mark: Optional[str]  = str(mark_synbol)
         ruby_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
         slash_none: Optional[list] = [r'[;/[^¥/]\*/]']
