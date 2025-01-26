@@ -14,7 +14,7 @@ vim-plug使用                          Plug 'takkii/lovingyou'
 Python3.5 ≦  x ＜ Python4.0           Python3.5以上4.0未満を推奨します
 x = lovingyou
 Node.js側依存解消                     cd lovingyou
-                                     npm install
+                                      npm install
 
 ==============================================================================
 *./lovingyou*
