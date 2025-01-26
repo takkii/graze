@@ -12,7 +12,7 @@ Introduction (vim-plug)                 Plug 'takkii/lovingyou'
 Settings (deoplete.nvim)                :UpdateRemotePlugins
 Dependency removal                      pip3 install -r requirements.txt
 Python3.5 ≦  x ＜ Python4.0             Python3.5 or higher
-x = lovingyou                         but less than 4.0 is recommended
+x = lovingyou                           but less than 4.0 is recommended
 Node.js Dependency removal              cd lovingyou
                                         npm install
 
