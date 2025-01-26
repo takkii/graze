@@ -22,9 +22,9 @@ class Source(Base):
     def __init__(self, vim):
         super().__init__(vim)
         self.name: Optional[str] = 'lovingyou'
-        self.filetypes: Optional[list] = ['javascript','typescript']
-        mark_synbol: Optional[str] = '[pandas]'
-        self.mark: Optional[str]  = str(mark_synbol)
+        self.filetypes: Optional[list] = ['javascript', 'typescript']
+        mark_synbol: Optional[str] = 'pandas: ' + str(pd.__version__)
+        self.mark: Optional[str] = str(mark_synbol)
         ruby_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
         slash_none: Optional[list] = [r'[;/[^¥/]\*/]']
         self.input_pattern: Optional[str] = '|'.join(ruby_match + slash_none)
@@ -80,9 +80,9 @@ class Source(Base):
                     # Get Receiver/lovingyou behavior.
                     with open(os.path.expanduser(neo_t)) as r_meth:
                         # pandas and dask
-                        neo_php: Optional[list] = list(r_meth.readlines())
-                        pd_php = pd.Series(neo_php)
-                        st_r = pd_php.sort_index()
+                        neo_pan: Optional[list] = list(r_meth.readlines())
+                        pd_py = pd.Series(neo_pan)
+                        st_r = pd_py.sort_index()
                         ddf = from_pandas(
                             data=st_r, npartitions=multiprocessing.cpu_count())
                         data_array = ddf.to_dask_array(lengths=True)
@@ -99,9 +99,9 @@ class Source(Base):
                     # Get Receiver/lovingyou behavior.
                     with open(os.path.expanduser(vim_t)) as r_meth:
                         # pandas and dask
-                        vim_php: Optional[list] = list(r_meth.readlines())
-                        pd_php = pd.Series(vim_php)
-                        st_r = pd_php.sort_index()
+                        vim_pan: Optional[list] = list(r_meth.readlines())
+                        pd_py = pd.Series(vim_pan)
+                        st_r = pd_py.sort_index()
                         ddf = from_pandas(
                             data=st_r, npartitions=multiprocessing.cpu_count())
                         data_array = ddf.to_dask_array(lengths=True)
@@ -134,7 +134,7 @@ class Source(Base):
                     # throw except.
                     raise RuntimeError from None
 
-            # skl_str Folder not found.
+            # lovingyou Folder not found.
             else:
                 raise ValueError("None, Please Check the lovingyou Folder.")
 
