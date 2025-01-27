@@ -3,7 +3,6 @@ import gc
 import multiprocessing
 import os
 import pandas as pd
-import random
 import re
 import sys
 import traceback
@@ -23,7 +22,7 @@ class Source(Base):
         super().__init__(vim)
         self.name: Optional[str] = 'lovingyou'
         self.filetypes: Optional[list] = ['javascript', 'typescript']
-        mark_synbol: Optional[str] = 'pandas: ' + str(pd.__version__)
+        mark_synbol: Optional[str] = '[pandas: ' + str(pd.__version__) + ']'
         self.mark: Optional[str] = str(mark_synbol)
         ruby_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
         slash_none: Optional[list] = [r'[;/[^¥/]\*/]']
