@@ -60,9 +60,9 @@ class Source(Base):
                     # Get Receiver/lovingyou behavior.
                     with open(os.path.expanduser(loc_t)) as r_meth:
                         # pandas and dask
-                        index_php: Optional[list] = list(r_meth.readlines())
-                        pd_php = pd.Series(index_php)
-                        st_r = pd_php.sort_index()
+                        index_py: Optional[list] = list(r_meth.readlines())
+                        pd_py = pd.Series(index_py)
+                        st_r = pd_py.sort_index()
                         ddf = from_pandas(
                             data=st_r, npartitions=multiprocessing.cpu_count())
                         data_array = ddf.to_dask_array(lengths=True)
