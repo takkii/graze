@@ -24,9 +24,10 @@ class Source(Base):
         self.filetypes: Optional[list] = ['javascript', 'typescript', 'html']
         mark_synbol: Optional[str] = '[pandas: ' + str(pd.__version__) + ']'
         self.mark: Optional[str] = str(mark_synbol)
-        ruby_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
+        js_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
+        html_match = [r'[<a-zA-Z(?: .+?)?>.*?<\/a-zA-Z>]']
         slash_none: Optional[list] = [r'[;/[^¥/]\*/]']
-        self.input_pattern: Optional[str] = '|'.join(ruby_match + slash_none)
+        self.input_pattern: Optional[str] = '|'.join(js_match + html_match + slash_none)
         self.rank: Optional[int] = 500
 
     def get_complete_position(self, context):
