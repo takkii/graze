@@ -25,7 +25,7 @@ class Source(Base):
         mark_synbol: Optional[str] = '[pandas: ' + str(pd.__version__) + ']'
         self.mark: Optional[str] = str(mark_synbol)
         js_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
-        html_match = [r'[<a-zA-Z(?: .+?)?>.*?<\/a-zA-Z>]']
+        html_match: Optional[list] = [r'[<a-zA-Z(?: .+?)?>.*?<\/a-zA-Z>]']
         self.input_pattern: Optional[str] = '|'.join(js_match + html_match)
         self.rank: Optional[int] = 500
 
