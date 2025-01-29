@@ -26,8 +26,7 @@ class Source(Base):
         self.mark: Optional[str] = str(mark_synbol)
         js_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
         html_match = [r'[<a-zA-Z(?: .+?)?>.*?<\/a-zA-Z>]']
-        slash_none: Optional[list] = [r'[;/[^¥/]\*/]']
-        self.input_pattern: Optional[str] = '|'.join(js_match + html_match + slash_none)
+        self.input_pattern: Optional[str] = '|'.join(js_match + html_match)
         self.rank: Optional[int] = 500
 
     def get_complete_position(self, context):
