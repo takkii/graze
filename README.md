@@ -7,7 +7,7 @@
 <br />
 
 <div align="center">
-    <b> lovingyou is kindness clone, origin go_straight.</b>
+    <b> Rename for lovingyou, graze is kindness clone, origin go_straight.</b>
 </div>
 <br />
 
