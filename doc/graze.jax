@@ -14,14 +14,14 @@ vim-plug使用                            Plug 'takkii/graze'
 Python3.5 ≦  x ＜ Python4.0             Python3.5以上4.0未満を推奨します
 x = graze
 Node.js側依存解消                       cd graze
-                                       npm install / yarn install
+                                        yarn install
 
 ==============================================================================
 *./graze*
 
-辞書読み込み                              $HOME or vim-plug: Neovim/Vim
-ログフォルダ操作(作成/削除)               ruby ./tools/cleaner.rb
-バージョンチェック(Windows)               python pake.py
-バージョンチェック(UNIX)                  ./pake
+辞書読み込み                            $HOME or vim-plug: Neovim/Vim
+ログフォルダ操作(作成/削除)             ruby ./tools/cleaner.rb
+バージョンチェック(Windows)             python pake.py
+バージョンチェック(UNIX)                ./pake
 
 ==============================================================================

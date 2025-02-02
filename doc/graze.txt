@@ -14,7 +14,7 @@ Dependency removal                      pip3 install -r requirements.txt
 Python3.5 ≦  x ＜ Python4.0             Python3.5 or higher
 x = graze                               but less than 4.0 is recommended
 Node.js Dependency removal              cd graze
-                                        npm install / yarn install
+                                        yarn install
 
 ==============================================================================
 *./graze*
