@@ -8,20 +8,20 @@ License: MIT
 *Environment*
 
 環境構築                                Python3, vim-plug, deoplete.nvim
-vim-plug使用                           Plug 'takkii/graze'
-設定(deoplete.nvim)                    :UpdateRemotePlugins
+vim-plug使用                            Plug 'takkii/graze'
+設定(deoplete.nvim)                     :UpdateRemotePlugins
 依存解消                                pip3 install -r requirements.txt
-Python3.5 ≦  x ＜ Python4.0            Python3.5以上4.0未満を推奨します
+Python3.5 ≦  x ＜ Python4.0             Python3.5以上4.0未満を推奨します
 x = graze
 Node.js側依存解消                       cd graze
-                                      npm install / yarn install
+                                       npm install / yarn install
 
 ==============================================================================
 *./graze*
 
-辞書読み込み                            $HOME or vim-plug: Neovim/Vim
+辞書読み込み                              $HOME or vim-plug: Neovim/Vim
 ログフォルダ操作(作成/削除)               ruby ./tools/cleaner.rb
-バージョンチェック(Windows)              python pake.py
-バージョンチェック(UNIX)                 ./pake
+バージョンチェック(Windows)               python pake.py
+バージョンチェック(UNIX)                  ./pake
 
 ==============================================================================
