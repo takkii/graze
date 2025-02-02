@@ -2,7 +2,7 @@
 <br />
 
 <div align="center">
-    lovingyou use <a href="https://github.com/Shougo/deoplete.nvim">deoplete.nvim</a>
+    graze use <a href="https://github.com/Shougo/deoplete.nvim">deoplete.nvim</a>
 </div>
 <br />
 
