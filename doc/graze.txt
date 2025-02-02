@@ -1,0 +1,27 @@
+*graze*
+
+version: 2025/02/02
+Author: takkii <karuma.reason@gmail.com>
+License: MIT
+
+==============================================================================
+*Environment*
+
+Environment construction                Python3, vim-plug, deoplete.nvim
+Introduction (vim-plug)                 Plug 'takkii/graze'
+Settings (deoplete.nvim)                :UpdateRemotePlugins
+Dependency removal                      pip3 install -r requirements.txt
+Python3.5 ≦  x ＜ Python4.0             Python3.5 or higher
+x = graze                               but less than 4.0 is recommended
+Node.js Dependency removal              cd graze
+                                        npm install / yarn install
+
+==============================================================================
+*./graze*
+
+Load dictionary                         $HOME or vim-plug: Neovim/Vim
+Log folder operations (create/delete)   ruby ./tools/cleaner.rb
+Python version check (Windows)          python pake.py
+Python version check (UNIX)             ./pake
+
+==============================================================================

@@ -27,9 +27,9 @@ class CleanRunner
       line.chomp!
 
       if line.match?(sel[0])
-        FileUtils.rm_rf(File.expand_path('~/lovingyou_log'))
+        FileUtils.rm_rf(File.expand_path('~/graze_log'))
         puts ''
-        puts 'Deleted, the existing lovingyou_log folder.'
+        puts 'Deleted, the existing graze_log folder.'
         puts ''
         break
       elsif line.match?(sel[1])
@@ -48,15 +48,15 @@ class CleanRunner
 
   def self.run
     encoding_style
-    if Dir.exist?(File.expand_path('~/lovingyou_log'))
+    if Dir.exist?(File.expand_path('~/graze_log'))
       puts ''
-      puts 'Already have a lovingyou_log folder.'
+      puts 'Already have a graze_log folder.'
       delete
     else
-      FileUtils.mkdir('lovingyou_log')
-      FileUtils.mv("#{File.dirname(__FILE__)}/lovingyou_log", File.expand_path('~/'))
+      FileUtils.mkdir('graze_log')
+      FileUtils.mv("#{File.dirname(__FILE__)}/graze_log", File.expand_path('~/'))
       puts ''
-      puts 'Created, lovingyou_log folder.'
+      puts 'Created, graze_log folder.'
       puts ''  
     end
   end
