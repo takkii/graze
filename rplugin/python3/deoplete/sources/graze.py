@@ -20,7 +20,7 @@ class Source(Base):
 
     def __init__(self, vim):
         super().__init__(vim)
-        self.name: Optional[str] = 'lovingyou'
+        self.name: Optional[str] = 'graze'
         self.filetypes: Optional[list] = ['javascript', 'typescript', 'html']
         mark_synbol: Optional[str] = '[pandas: ' + str(pd.__version__) + ']'
         self.mark: Optional[str] = str(mark_synbol)
@@ -43,12 +43,12 @@ class Source(Base):
             if (py_mj == 3 and py_mi > 4) or (py_mj < 4):
 
                 # Settings, vim-plug | neovim path is true/false folder search.
-                neo_f: Optional[str] = '~/.neovim/plugged/lovingyou/dict/'
-                neo_t = '~/.neovim/plugged/lovingyou/dict/javascript.txt'
+                neo_f: Optional[str] = '~/.neovim/plugged/graze/dict/'
+                neo_t = '~/.neovim/plugged/graze/dict/javascript.txt'
 
                 # Settings, vim-plug | vim path is true/false folder search.
-                vim_f: Optional[str] = '~/.vim/plugged/lovingyou/dict/'
-                vim_t = '~/.vim/plugged/lovingyou/dict/javascript.txt'
+                vim_f: Optional[str] = '~/.vim/plugged/graze/dict/'
+                vim_t = '~/.vim/plugged/graze/dict/javascript.txt'
 
                 # Settings, $HOME/dict path is true/false folder search.
                 loc_f: Optional[str] = '~/dict/'
@@ -57,7 +57,7 @@ class Source(Base):
                 # Home Folder, Set the dictionary.
                 if os.path.exists(os.path.expanduser(loc_f)):
 
-                    # Get Receiver/lovingyou behavior.
+                    # Get Receiver/graze behavior.
                     with open(os.path.expanduser(loc_t)) as r_meth:
                         # pandas and dask
                         index_py: Optional[list] = list(r_meth.readlines())
@@ -76,7 +76,7 @@ class Source(Base):
                 # Neovim Folder, Set the dictionary.
                 elif os.path.exists(os.path.expanduser(neo_f)):
 
-                    # Get Receiver/lovingyou behavior.
+                    # Get Receiver/graze behavior.
                     with open(os.path.expanduser(neo_t)) as r_meth:
                         # pandas and dask
                         neo_pan: Optional[list] = list(r_meth.readlines())
@@ -95,7 +95,7 @@ class Source(Base):
                 # Vim Folder, Set the dictionary.
                 elif os.path.exists(os.path.expanduser(vim_f)):
 
-                    # Get Receiver/lovingyou behavior.
+                    # Get Receiver/graze behavior.
                     with open(os.path.expanduser(vim_t)) as r_meth:
                         # pandas and dask
                         vim_pan: Optional[list] = list(r_meth.readlines())
@@ -122,8 +122,8 @@ class Source(Base):
         # TraceBack.
         except Exception:
             # Load/Create LogFile.
-            except_folder: Optional[str] = '~/lovingyou_log/'
-            except_file: Optional[str] = '~/lovingyou_log/lovingyou_error.log'
+            except_folder: Optional[str] = '~/graze_log/'
+            except_file: Optional[str] = '~/graze_log/graze_error.log'
 
             # Load the dictionary.
             if os.path.isdir(os.path.expanduser(except_folder)):
@@ -133,9 +133,9 @@ class Source(Base):
                     # throw except.
                     raise RuntimeError from None
 
-            # lovingyou Folder not found.
+            # graze Folder not found.
             else:
-                raise ValueError("None, Please Check the lovingyou Folder.")
+                raise ValueError("None, Please Check the graze Folder.")
 
         # Once Exec.
         finally:
