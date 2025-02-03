@@ -60,18 +60,18 @@ class Source(Base):
                     # Get Receiver/graze behavior.
                     with open(os.path.expanduser(loc_t)) as r_meth:
                         # pandas and dask
-                        index_py: Optional[list] = list(r_meth.readlines())
-                        pd_py = pd.Series(index_py)
-                        st_r = pd_py.sort_index()
+                        index_js: Optional[list] = list(r_meth.readlines())
+                        pd_js = pd.Series(index_js)
+                        st_r = pd_js.sort_index()
                         ddf = from_pandas(
                             data=st_r, npartitions=multiprocessing.cpu_count())
                         data_array = ddf.to_dask_array(lengths=True)
                         data = data_array.compute()
-                        data_py: Optional[list] = [s.rstrip() for s in data]
+                        data_js: Optional[list] = [s.rstrip() for s in data]
 
                         # sorted and itemgetter
-                        sorted(data_py, key=itemgetter(0))
-                        return data_py
+                        sorted(data_js, key=itemgetter(0))
+                        return data_js
 
                 # Neovim Folder, Set the dictionary.
                 elif os.path.exists(os.path.expanduser(neo_f)):
@@ -80,17 +80,17 @@ class Source(Base):
                     with open(os.path.expanduser(neo_t)) as r_meth:
                         # pandas and dask
                         neo_pan: Optional[list] = list(r_meth.readlines())
-                        pd_py = pd.Series(neo_pan)
-                        st_r = pd_py.sort_index()
+                        pd_js = pd.Series(neo_pan)
+                        st_r = pd_js.sort_index()
                         ddf = from_pandas(
                             data=st_r, npartitions=multiprocessing.cpu_count())
                         data_array = ddf.to_dask_array(lengths=True)
                         data = data_array.compute()
-                        neo_py: Optional[list] = [s.rstrip() for s in data]
+                        neo_js: Optional[list] = [s.rstrip() for s in data]
 
                         # sort and itemgetter
-                        neo_py.sort(key=itemgetter(0))
-                        return neo_py
+                        neo_js.sort(key=itemgetter(0))
+                        return neo_js
 
                 # Vim Folder, Set the dictionary.
                 elif os.path.exists(os.path.expanduser(vim_f)):
@@ -99,17 +99,17 @@ class Source(Base):
                     with open(os.path.expanduser(vim_t)) as r_meth:
                         # pandas and dask
                         vim_pan: Optional[list] = list(r_meth.readlines())
-                        pd_py = pd.Series(vim_pan)
-                        st_r = pd_py.sort_index()
+                        pd_js = pd.Series(vim_pan)
+                        st_r = pd_js.sort_index()
                         ddf = from_pandas(
                             data=st_r, npartitions=multiprocessing.cpu_count())
                         data_array = ddf.to_dask_array(lengths=True)
                         data = data_array.compute()
-                        vim_py: Optional[list] = [s.rstrip() for s in data]
+                        vim_js: Optional[list] = [s.rstrip() for s in data]
 
                         # sort and itemgetter
-                        vim_py.sort(key=itemgetter(0))
-                        return vim_py
+                        vim_js.sort(key=itemgetter(0))
+                        return vim_js
 
                 # Config Folder not found.
                 else:
@@ -127,8 +127,8 @@ class Source(Base):
 
             # Load the dictionary.
             if os.path.isdir(os.path.expanduser(except_folder)):
-                with open(os.path.expanduser(except_file), 'a') as log_py:
-                    traceback.print_exc(file=log_py)
+                with open(os.path.expanduser(except_file), 'a') as log_js:
+                    traceback.print_exc(file=log_js)
 
                     # throw except.
                     raise RuntimeError from None
