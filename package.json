@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@angular/language-server": "^18.1.2",
     "npm-check-updates": "^17.1.14",
     "typescript": "^5.7.3",
     "typescript-language-server": "^4.3.3",
