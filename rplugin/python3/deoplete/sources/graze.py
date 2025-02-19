@@ -1,4 +1,4 @@
-from dask.dataframe.io.io import from_pandas
+rom dask.dataframe import from_pandas
 import gc
 import multiprocessing
 import os
