@@ -43,8 +43,8 @@ class Source(Base):
             if (py_mj == 3 and py_mi > 4) or (py_mj < 4):
 
                 # Settings, vim-plug | vim path is true/false folder search.
-                vim_f: Optional[str] = '~/.vim/plugged/graze/dict/'
-                vim_t = '~/.vim/plugged/graze/dict/javascript.txt'
+                vim_f: Optional[str] = '~/.vim/plugged/dict/load/js/'
+                vim_t = '~/.vim/plugged/dict/load/js/javascript.txt'
 
                 # Settings, $HOME/dict path is true/false folder search.
                 loc_f: Optional[str] = '~/dict/'
