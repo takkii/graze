@@ -8,10 +8,10 @@
 <br />
 
 <div align="center">
-    <b> Rename for lovingyou, graze is kindness clone, origin go_straight.</b>
+    <b> Rename for lovingyou, graze is kindness clone, origin go_straight/totolot.</b>
 </div>
 <br />
 
 <div align="center">
-    <b> Copyright (c) 2025 Takayuki Kamiyama </b>
+    <b> Copyright &copy 2025 Takayuki Kamiyama </b>
 </div>
