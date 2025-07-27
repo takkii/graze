@@ -78,27 +78,26 @@ class Source(Base):
 
         # TraceBack.
         except Exception:
-            # Check, graze.py path.
-            git_g = File.basename(
-                File.expand_path(
-                    "~/~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py"
-                ), ".py") + "_log"
-
             # Load/Create LogFile.
-            except_folder: Optional[str] = '~/' + git_g
-            except_file: Optional[str] = '~/' + git_g + '/error.log'
+            graze: Optional[str] = os.path.expanduser('~/graze_log/')
+            db_w: Optional[str] = os.path.expanduser('~/graze_log/debug.log')
 
             # Load the dictionary.
-            if os.path.isdir(os.path.expanduser(except_folder)):
-                with open(os.path.expanduser(except_file), 'a') as log_py:
+            if os.path.isdir(graze):
+                with open(db_w, 'a') as log_py:
                     traceback.print_exc(file=log_py)
 
                     # throw except.
                     raise RuntimeError from None
 
-            # skl_str Folder not found.
+            # graze_log Foler not found.
             else:
-                raise ValueError("None, Please Check the graze Folder.")
+                raise ValueError("None, Please Check the graze_log Folder.")
+
+        # Custom Exception.
+        except ValueError as ext:
+            print(ext)
+            raise RuntimeError from None
 
         # Once Exec.
         finally:
