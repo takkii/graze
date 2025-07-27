@@ -21,12 +21,12 @@ class Source(Base):
     def __init__(self, vim):
         super().__init__(vim)
         self.name: Optional[str] = 'graze'
-        self.filetypes: Optional[list] = ['javascript', 'typescript', 'html']
+        self.filetypes: Optional[list] = ['javascript', 'typescript']
         mark_synbol: Optional[str] = '[pandas: ' + str(pd.__version__) + ']'
         self.mark: Optional[str] = str(mark_synbol)
-        js_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
+        ruby_match: Optional[list] = [r'\.[a-zA-Z0-9_?!]*|[a-zA-Z]\w*::\w*']
         html_match: Optional[list] = [r'[<a-zA-Z(?: .+?)?>.*?<\/a-zA-Z>]']
-        self.input_pattern: Optional[str] = '|'.join(js_match + html_match)
+        self.input_pattern: Optional[str] = '|'.join(ruby_match + html_match)
         self.rank: Optional[int] = 500
 
     def get_complete_position(self, context):
@@ -42,55 +42,35 @@ class Source(Base):
             # 3.5 and higher, 4.x or less,python version is required.
             if (py_mj == 3 and py_mi > 4) or (py_mj < 4):
 
-                # Settings, vim-plug | vim path is true/false folder search.
-                vim_f: Optional[str] = '~/.vim/plugged/dict/load/js/'
-                vim_t = '~/.vim/plugged/dict/load/js/javascript.txt'
-
                 # Settings, $HOME/dict path is true/false folder search.
-                loc_f: Optional[str] = '~/dict/'
-                loc_t: Optional[str] = '~/dict/javascript.txt'
+                loc_t: Optional[str] = 'load/js/'
 
-                # Home Folder, Set the dictionary.
-                if os.path.exists(os.path.expanduser(loc_f)):
+                paths = [
+                    os.path.expanduser(os.path.join(p, loc_t)) for p in [
+                        '~/GitHub/dict/', '~/.vim/plugged/dict/',
+                        '~/.neovim/plugged/dict/'
+                    ]
+                ]
 
-                    # Get Receiver/graze behavior.
-                    with open(os.path.expanduser(loc_t)) as r_meth:
-                        # pandas and dask
-                        index_js: Optional[list] = list(r_meth.readlines())
-                        pd_js = pd.Series(index_js)
-                        st_r = pd_js.sort_index()
-                        ddf = from_pandas(
-                            data=st_r, npartitions=multiprocessing.cpu_count())
-                        data_array = ddf.to_dask_array(lengths=True)
-                        data = data_array.compute()
-                        data_js: Optional[list] = [s.rstrip() for s in data]
+                path = next(p for p in paths if os.path.exists(p))
+                js_dict: Optional[str] = 'javascript.txt'
+                js_mod_fn = os.path.join(path, js_dict)
 
-                        # sorted and itemgetter
-                        sorted(data_js, key=itemgetter(0))
-                        return data_js
+                # Get Receiver/graze behavior.
+                with open(js_mod_fn) as r_meth:
+                    # pandas and dask
+                    index_ruby: Optional[list] = list(r_meth.readlines())
+                    pd_ruby = pd.Series(index_ruby)
+                    st_r = pd_ruby.sort_index()
+                    ddf = from_pandas(data=st_r,
+                                      npartitions=multiprocessing.cpu_count())
+                    data_array = ddf.to_dask_array(lengths=True)
+                    data = data_array.compute()
+                    data_py: Optional[list] = [s.rstrip() for s in data]
 
-                # Vim Folder, Set the dictionary.
-                elif os.path.exists(os.path.expanduser(vim_f)):
-
-                    # Get Receiver/graze behavior.
-                    with open(os.path.expanduser(vim_t)) as r_meth:
-                        # pandas and dask
-                        vim_pan: Optional[list] = list(r_meth.readlines())
-                        pd_js = pd.Series(vim_pan)
-                        st_r = pd_js.sort_index()
-                        ddf = from_pandas(
-                            data=st_r, npartitions=multiprocessing.cpu_count())
-                        data_array = ddf.to_dask_array(lengths=True)
-                        data = data_array.compute()
-                        vim_js: Optional[list] = [s.rstrip() for s in data]
-
-                        # sort and itemgetter
-                        vim_js.sort(key=itemgetter(0))
-                        return vim_js
-
-                # Config Folder not found.
-                else:
-                    raise ValueError("None, Please Check the Config Folder")
+                    # sorted and itemgetter
+                    sorted(data_py, key=itemgetter(0))
+                    return data_py
 
             # Python_VERSION: 3.5 or higher and 4.x or less.
             else:
@@ -98,19 +78,25 @@ class Source(Base):
 
         # TraceBack.
         except Exception:
+            # Check, graze.py path.
+            git_g = File.basename(
+                File.expand_path(
+                    "~/~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py"
+                ), ".py") + "_log"
+
             # Load/Create LogFile.
-            except_folder: Optional[str] = '~/graze_log/'
-            except_file: Optional[str] = '~/graze_log/graze_error.log'
+            except_folder: Optional[str] = '~/' + git_g
+            except_file: Optional[str] = '~/' + git_g + '/error.log'
 
             # Load the dictionary.
             if os.path.isdir(os.path.expanduser(except_folder)):
-                with open(os.path.expanduser(except_file), 'a') as log_js:
-                    traceback.print_exc(file=log_js)
+                with open(os.path.expanduser(except_file), 'a') as log_py:
+                    traceback.print_exc(file=log_py)
 
                     # throw except.
                     raise RuntimeError from None
 
-            # graze Folder not found.
+            # skl_str Folder not found.
             else:
                 raise ValueError("None, Please Check the graze Folder.")
 
