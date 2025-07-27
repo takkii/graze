@@ -1,4 +1,5 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MITLicense](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![GitHub release](https://img.shields.io/github/release/takkii/graze.svg?style=flat)](GitHub) [![GitHub Status](https://img.shields.io/github/last-commit/takkii/graze.svg?style=flat)](GitHub) [![Python package](https://github.com/takkii/graze/actions/workflows/python.yml/badge.svg)](https://github.com/takkii/graze/actions/workflows/python.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MITLicense](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![GitHub release](https://img.shields.io/github/release/takkii/graze.svg?style=flat)](GitHub) [![GitHub Status](https://img.shields.io/github/last-commit/takkii/graze.svg?style=flat)](GitHub) 
+
 <br />
 
 <div align="center">
