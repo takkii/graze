@@ -78,9 +78,18 @@ class Source(Base):
 
         # TraceBack.
         except Exception:
+            # graze file path.
+            filepath = os.path.expanduser(
+                "~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py"
+            )
+
+            basename_without_ext = os.path.splitext(
+                os.path.basename(filepath))[0]
+            filename = (str(basename_without_ext) + "_log")
+
             # Load/Create LogFile.
-            graze: Optional[str] = os.path.expanduser('~/graze_log/')
-            db_w: Optional[str] = os.path.expanduser('~/graze_log/debug.log')
+            graze: Optional[str] = str(filename)
+            db_w: Optional[str] = os.path.expanduser('~/' + filename + '/debug.log')
 
             # Load the dictionary.
             if os.path.isdir(graze):
