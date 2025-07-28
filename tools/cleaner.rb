@@ -24,13 +24,16 @@ class CleanRunner
     }
 
     # Check, graze.py path
-    git_g = File.basename(File.expand_path("~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py"), ".py") + "_log"
+    filepath = '~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py'.to_s
+    git_k = File.basename(File.expand_path(filepath), '.py')
+    gr_exist = "#{git_k}_log"
+    encoding_style
 
     while (line = Readline.readline(""))
       line.chomp!
 
       if line.match?(sel[0])
-        FileUtils.rm_rf(File.expand_path('~/' + git_g))
+        FileUtils.rm_rf(File.expand_path("~/#{gr_exist}"))
         puts ''
         puts 'Deleted, the existing graze_log folder.'
         puts ''
@@ -51,10 +54,12 @@ class CleanRunner
 
   def self.run
     # Check, graze.py path
-    git_g = File.basename(File.expand_path("~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py"), ".py") + "_log"
+    filepath = '~/.vim/plugged/graze/rplugin/python3/deoplete/sources/graze.py'.to_s
+    git_k = File.basename(File.expand_path(filepath), '.py')
+    gr_exist = "#{git_k}_log"
     encoding_style
 
-    if Dir.exist?(File.expand_path('~/' + git_g))
+    if Dir.exist?(File.expand_path("~/#{gr_exist}"))
       puts ''
       puts 'Already have a graze_log folder.'
       delete
@@ -63,7 +68,7 @@ class CleanRunner
       FileUtils.mv("#{File.dirname(__FILE__)}/graze_log", File.expand_path('~/'))
       puts ''
       puts 'Created, graze_log folder.'
-      puts ''  
+      puts ''
     end
   end
 end
