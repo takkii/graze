@@ -1,4 +1,3 @@
-from dask.dataframe import from_pandas
 import gc
 import multiprocessing
 import os
@@ -8,6 +7,7 @@ import sys
 import traceback
 import warnings
 
+from dask.dataframe import from_pandas
 from deoplete.source.base import Base
 from operator import itemgetter
 from typing import Optional
